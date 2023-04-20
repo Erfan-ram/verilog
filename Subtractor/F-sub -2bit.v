@@ -20,55 +20,42 @@ endmodule
 module Full_sub_2bit (x,y,bin,diff,bout);
 
 input [1:0] x,y;
-input cin;
+input _bin;
 output [1:0] diff;
-output bout;
+output _bout;
 
-Full_adder_1bit m0(.x(x[0]),.y(y[0]),.cin(cin),.diff(diff[0]),.bout(w1));
-Full_adder_1bit m1(.x(x[1]),.y(y[1]),.cin(cin),.diff(diff[1]),.bout(bout));
+Full_adder_1bit m0(.x(x[0]),.y(y[0]),.bin(bin),.diff(diff[0]),.bout(w1));
+Full_adder_1bit m1(.x(x[1]),.y(y[1]),.bin(bin),.diff(diff[1]),.bout(_bout));
 
 endmodule
 
 
 module test_Full_sub_1bit;
 
-reg _x,_y,_bin;
 wire _diff,_bout;
 
-Full_sub_1bit full(.x(_x),.y(_y),.bin(_bin),.diff(_diff),.bout(_bout));
+reg [1:0]b0,01;
+reg _bin;
+
+wire [1:0]_diff;
+wire _bout;
+
+Full_sub_2bit full(.x(b0),.y(b1),.bin(_bin),.diff(_diff),.bout(_bout));
+
 
 initial begin
 
-_x=1'b0; _y=1'b0; _bin=1'b0;
+i0=2'b11; i1=2'b11; _bin=1'b0;
 
 #10
 
-_x=1'b0; _y=1'b0; _bin=1'b1;
+i0=2'b11; i1=2'b00; _bin=1'b0;
 
 #10
 
-_x=1'b0; _y=1'b1; _bin=1'b0;
+i0=2'b10; i1=2'b01; _bin=1'b0;
 
 #10
-
-_x=1'b0; _y=1'b1; _bin=1'b1;
-
-#10
-
-_x=1'b1; _y=1'b0; _bin=1'b0;
-
-#10
-
-_x=1'b1; _y=1'b0; _bin=1'b1;
-
-#10
-
-_x=1'b1; _y=1'b1; _bin=1'b0;
-
-#10
-
-_x=1'b1; _y=1'b1; _bin=1'b1;
-
 end
 
 endmodule
