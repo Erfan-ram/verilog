@@ -23,7 +23,7 @@ output cout;
 output [1:0] sum;
 
 Full_adder_1bit m0(.sum(sum[0]),.cout(w1),.cin(cin),.x(x[0]),.y(y[0]));
-Full_adder_1bit m1(.sum(sum[1]),.cout(cout),.cin(cin),.x(x[1]),.y(y[1]));
+Full_adder_1bit m1(.sum(sum[1]),.cout(cout),.cin(w1),.x(x[1]),.y(y[1]));
 
 endmodule
 
