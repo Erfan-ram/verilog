@@ -1,17 +1,23 @@
-module Full_sub_1bit (x,y,bin,diff,bor);
+module Full_sub_1bit (x,y,bin,diff,bout);
 
 input x,y,bin;
 output diff,bout;
 
-wire w1,w2,w3;
+wire not_x,w1,w2;
 
-xor (diff,x,y,bin);
+// xor (diff,x,y,bin);
 
-and (w1,x,bin);
-and (w2,y,bin);
-and (w3,x,y);
+xor (xor_xy,x,y);
+xor (diff,bin,xor_xy);
 
-or (bout,w1,w2,w3);
+not(not_x,x)
+and (w1,not_x,y);
+
+not(not_xor_xy,xor_xy)
+and (w2,not_xor_xy,bin);
+
+or (bout,w2,w1);
+
 
 endmodule
 
