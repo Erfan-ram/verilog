@@ -27,19 +27,19 @@ input s0,s1;
 
 output [3:0] out;
 
-mux_4x1 m0(.i0(_i[1]),.i1(i1[1]),.i2(i2[1]),.i3(i3[1]),.s0(s0),.s1(s1),.out(out[0]));
-mux_4x1 m1(.i0(_i[2]),.i1(i1[2]),.i2(i2[2]),.i3(i3[2]),.s0(s0),.s1(s1),.out(out[1]));
-mux_4x1 m2(.i0(_i[3]),.i1(i1[3]),.i2(i2[3]),.i3(i3[3]),.s0(s0),.s1(s1),.out(out[2]));
-mux_4x1 m4(.i0(_i[4]),.i1(i1[4]),.i2(i2[4]),.i3(i3[4]),.s0(s0),.s1(s1),.out(out[3]));
+mux_4x1 m0(.i0(i0[1]),.i1(i1[1]),.i2(i2[1]),.i3(i3[1]),.s0(s0),.s1(s1),.out(out[0]));
+mux_4x1 m1(.i0(i0[2]),.i1(i1[2]),.i2(i2[2]),.i3(i3[2]),.s0(s0),.s1(s1),.out(out[1]));
+mux_4x1 m2(.i0(i0[3]),.i1(i1[3]),.i2(i2[3]),.i3(i3[3]),.s0(s0),.s1(s1),.out(out[2]));
+mux_4x1 m4(.i0(i0[4]),.i1(i1[4]),.i2(i2[4]),.i3(i3[4]),.s0(s0),.s1(s1),.out(out[3]));
 
 endmodule
 
-module test_mux4_1;
+module test_mux4_1_4bit;
 reg [3:0]_i0,_i1,_i2,_i3;
-reg ـs1,ـs2;
+reg _s0,_s1;
 
 wire [3:0]_out;
-wire _bout
+wire _bout;
 
 mux_4x1_4bit full(.i0(_i0),.i1(_i1),.i2(_i2),.i3(_i3),.s0(_s0),.s1(_s1),.out(_out));
 
